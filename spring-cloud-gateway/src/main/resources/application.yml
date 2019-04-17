@@ -1,7 +1,7 @@
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
+      defaultZone: http://localhost:8761/eureka/eureka
 spring:
   application:
     name: gateway
@@ -19,27 +19,29 @@ spring:
         - id: hello
           uri: lb://eureka-provider
           predicates:
-          - Path=/hello/**
+        #  - Path=/**
+          - Path=/gateway/hello/**
           filters:
-            - StripPrefix=1
+            - StripPrefix=2
             - name: Hystrix
               args:
                 name: fallbackcmd
                 fallbackUri: forward:/fallback
             - name: RequestRateLimiter
               args:
-                key-resolver: '#{@ipKeyResolver}'
+                key-resolver: '#{@uriKeyResolver}'
                 redis-rate-limiter.replenishRate: 1
-                redis-rate-limiter.burstCapacity: 2 #限流桶的大小
+                redis-rate-limiter.burstCapacity: 2 #桶的大小
   redis:
-      host: localhost
+      host: 192.168.43.130
       port: 6379
       database: 1
 
 
 server:
   port: 8900
-
+  servlet:
+    context-path: /gateway
 
 
 
@@ -50,7 +52,7 @@ hystrix:
         isolation:
           strategy: SEMAPHORE
           thread:
-            timeoutInMilliseconds: 3000
+            timeoutInMilliseconds: 2000
 #          thread:
 #            timeoutInMilliseconds: 1000
 #      circuitBreaker:

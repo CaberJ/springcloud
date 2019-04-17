@@ -15,15 +15,9 @@ public class SpringCloudEurekaProviderApplication {
 	@Value("${server.port}")
 	String port;
 
-	@RequestMapping("/abc")
+	@RequestMapping("/add")
 	public String home() {
-		System.out.println("Hello world"+port);
 
-		/*try {
-			Thread.sleep(5000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}*/
 		return "Hello world"+port;
 	}
 

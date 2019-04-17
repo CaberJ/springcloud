@@ -16,10 +16,12 @@ ribbon:
   ReadTimeout: 10000
   ConnectTimeout: 10000
 
-hystrix:
-  command:
-    default:
-      circuitBreaker:
-        requestVolumeThreshold: 3 #次数
-        sleepWindowInMilliseconds: 10000  #时间
+#hystrix:
+#  command:
+#    default:
+#      execution:
+#        isolation:
+#          strategy: SEMAPHORE
+#          thread:
+#            timeoutInMilliseconds: 3000
 

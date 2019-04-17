@@ -14,12 +14,7 @@ public class ConsumerController {
     @Autowired
     private RestTemplate restTemplate;
 
-    @HystrixCommand(
-            commandProperties = {
-            @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "1000"),
-            @HystrixProperty(name = "execution.timeout.enabled", value = "true")},
-            fallbackMethod = "defaultStores"
-    )
+    @HystrixCommand(fallbackMethod = "defaultStores")
     @GetMapping(value = "/a")
     public String hello() {
 
