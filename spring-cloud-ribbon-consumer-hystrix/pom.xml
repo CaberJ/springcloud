@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>cn.caber</groupId>
-	<artifactId>spring-cloud-ribbon-consumer</artifactId>
+	<artifactId>spring-cloud-ribbon-consumer-hystrix</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>spring-cloud-ribbon-consumer</name>
+	<name>spring-cloud-ribbon-consumer-hystrix</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
