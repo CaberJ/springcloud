@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: eureka-server
+server:
+  port: 8761
+  servlet:
+    context-path: /eureka
+eureka:
+  server:
+#    关闭注册中心的保护机制，
+    enable-self-preservation: false
+#    服务器清理服务列表的定时器
+    eviction-interval-timer-in-ms: 60000
+  instance:
+    hostname: localhost
+  client:
+    #    向注册中心注册自己。
+    registerWithEureka: true
+    #    检索服务
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://localhost:8762/${server.servlet.context-path}/eureka
+

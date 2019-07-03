@@ -17,11 +17,9 @@ public class SpringCloudEurekaProviderApplication {
 
 	@RequestMapping("/abc")
 	public String home() {
-        System.out.println("Hello world"+port);
+		System.out.println("hello world"+port);
 		return "Hello world"+port;
 	}
-
-
 
 	public static void main(String[] args) {
 		SpringApplication.run(SpringCloudEurekaProviderApplication.class, args);

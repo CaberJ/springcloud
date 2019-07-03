@@ -3,16 +3,17 @@ eureka:
     healthcheck:
       enabled: true
     serviceUrl:
-      defaultZone: http://localhost:8761/eureka/eureka
+      defaultZone: http://localhost:8761/eureka/eureka,http://localhost:8762/eureka/eureka
+
   instance:
 #  表明客户端需要将心跳发送到服务器端，以表明它还活着。
 #  如果心跳停止的时间超过了服务器设置的等待时间，那么服务器端将会从它的服务列表中删除该实例，从而将流量排除在该实例之外。默认30s
-    lease-expiration-duration-in-seconds: 30
+    lease-renewal-interval-in-seconds: 10    # 每间隔10s，向服务端发送一次心跳，证明自己依然”存活“
 #  服务器端等待的时间，因为它收到了最后的心跳，然后才可以从它的视图中删除这个实例，并且不允许流量进入这个实例。
 #  将这个值设置得太长可能意味着，即使实例不存在，流量也可以被路由到实例。
 #  将这个值设置得太小可能意味着，由于临时网络故障，该实例可能会被排除在流量之外。
 #  这个值的设置至少要高于leaseRenewalIntervalInSeconds中指定的值。默认90s
-    lease-renewal-interval-in-seconds: 10
+  lease-expiration-duration-in-seconds: 30  # 告诉服务端，如果我20s之内没有给你发心跳，就代表我“死”了，将我踢出掉。
 spring:
   application:
     name: eureka-provider

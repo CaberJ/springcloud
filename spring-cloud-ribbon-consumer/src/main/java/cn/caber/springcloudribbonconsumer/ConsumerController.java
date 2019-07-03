@@ -11,12 +11,11 @@ public class ConsumerController {
 
     @Autowired
     private RestTemplate restTemplate;
-    @Autowired
-    private LoadBalancerClient loadBalancerClient;
+
 
     @GetMapping(value = "/hello")
     public String hello() {
 
-        return restTemplate.getForEntity("http://eureka-provider/", String.class).getBody();
+        return restTemplate.getForEntity("http://eureka-provider/abc", String.class).getBody();
     }
 }

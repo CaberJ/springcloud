@@ -3,9 +3,9 @@ package cn.caber.springcloudfeignconsumer;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 
-@FeignClient("eureka-provider")
+@FeignClient(value = "eureka-provider")
 public interface HomeClient {
 
-    @GetMapping("/")
+    @GetMapping(value = "/abc")
     String consumer();
 }
