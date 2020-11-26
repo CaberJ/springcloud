@@ -3,10 +3,10 @@ spring:
     name: consul-client
   cloud:
     consul:
-      host: 192.168.1.141
+      host: 172.16.101.115
       port: 8500
       discovery:
-        healthCheckPath: /
-        healthCheckInterval: 5s
+        healthCheckPath: /actuator/health
+        healthCheckInterval: 10s
 
 

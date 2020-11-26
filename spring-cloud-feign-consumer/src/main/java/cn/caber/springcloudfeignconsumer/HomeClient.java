@@ -6,6 +6,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 @FeignClient(value = "eureka-provider")
 public interface HomeClient {
 
-    @GetMapping(value = "/abc")
-    String consumer();
+    @GetMapping(value = "/test1")
+    String consumer1();
+
+    @GetMapping(value = "/test2")
+    String consumer2();
 }

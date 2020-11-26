@@ -17,13 +17,9 @@ public class ConsumerController {
     @Autowired
     private RestTemplate restTemplate;
 
-    @GetMapping(value = "/hello")
-    public String hello() {
-        return  homeClient.consumer();
-    }
 
-    @GetMapping(value = "/hello1")
-    public String hello1() {
+    @GetMapping(value = "/hello0")
+    public String hello0() {
 //        String appName = "eureka-provider";
 //        String appName = "EUREKA-PROVIDER";
         String appName ="desktop-d3859ii";
@@ -31,4 +27,16 @@ public class ConsumerController {
 
         return  libai;
     }
+
+    @GetMapping(value = "/hello1")
+    public String hello1() {
+        return  homeClient.consumer1();
+    }
+
+    @GetMapping(value = "/hello2")
+    public String hello2() {
+        return  homeClient.consumer2();
+    }
+
+
 }

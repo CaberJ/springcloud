@@ -15,10 +15,16 @@ public class SpringCloudEurekaProviderApplication {
 	@Value("${server.port}")
 	String port;
 
-	@RequestMapping("/abc")
-	public String home() {
-        System.out.println("Hello world"+port);
-		return "Hello world"+port;
+	@RequestMapping("/test1")
+	public String home1() {
+        System.out.println("Hello world1"+port);
+		return "Hello world1"+port;
+	}
+
+	@RequestMapping("/test2")
+	public String home2() {
+		System.out.println("Hello world2"+port);
+		return "Hello world2"+port;
 	}
 
 
